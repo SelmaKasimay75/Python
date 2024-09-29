@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extended Multiple Choice Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Multiple Choice Quiz</h2>
+
+<div class="question">
+    1. If you're feeling stressed, it's important to:
+    <label><input type="radio" name="q1" value="get a grip on yourself"> Get a grip on yourself</label>
+    <label><input type="radio" name="q1" value="off the record"> Off the record</label>
+    <label><input type="radio" name="q1" value="up to speed"> Up to speed</label>
+    <label><input type="radio" name="q1" value="wait and see"> Wait and see</label>
+</div>
+
+<div class="question">
+    2. The company had to cancel the meeting:
+    <label><input type="radio" name="q2" value="at short notice"> At short notice</label>
+    <label><input type="radio" name="q2" value="up to speed"> Up to speed</label>
+    <label><input type="radio" name="q2" value="rule of thumb"> Rule of thumb</label>
+    <label><input type="radio" name="q2" value="not think twice"> Not think twice</label>
+</div>
+
+<div class="question">
+    3. The CEO is constantly:
+    <label><input type="radio" name="q3" value="in the public eye"> In the public eye</label>
+    <label><input type="radio" name="q3" value="wait and see"> Wait and see</label>
+    <label><input type="radio" name="q3" value="up to speed"> Up to speed</label>
+    <label><input type="radio" name="q3" value="get a grip on yourself"> Get a grip on yourself</label>
+</div>
+
+<div class="question">
+    4. He loves his job because he gets:
+    <label><input type="radio" name="q4" value="the best of both worlds"> The best of both worlds</label>
+    <label><input type="radio" name="q4" value="off the record"> Off the record</label>
+    <label><input type="radio" name="q4" value="strike a balance"> Strike a balance</label>
+    <label><input type="radio" name="q4" value="wait and see"> Wait and see</label>
+</div>
+
+<div class="question">
+    5. I wouldn't take what she said:
+    <label><input type="radio" name="q5" value="at face value"> At face value</label>
+    <label><input type="radio" name="q5" value="off the record"> Off the record</label>
+    <label><input type="radio" name="q5" value="rule of thumb"> Rule of thumb</label>
+    <label><input type="radio" name="q5" value="in the public eye"> In the public eye</label>
+</div>
+
+<button onclick="checkAnswers()">Submit</button>
+
+<div class="result" id="result"></div>
+
+<script>
+    function checkAnswers() {
+        const answers = {
+            q1: "get a grip on yourself",
+            q2: "at short notice",
+            q3: "in the public eye",
+            q4: "the best of both worlds",
+            q5: "at face value"
+        };
+
+        let score = 0;
+
+        // Check each question's answer
+        for (let i = 1; i <= 5; i++) {
+            const answer = document.querySelector(`input[name="q${i}"]:checked`);
+            if (answer && answer.value === answers[`q${i}`]) {
+                score++;
+            }
+        }
+
+        // Display result
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `You got ${score}/5 correct!`;
+    }
+</script>
+
+</body>
+</html>
