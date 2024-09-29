@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill in the Blanks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 5px;
+            font-size: 16px;
+            width: 70%;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Fill in the Blanks</h2>
+
+<div class="question">
+    1. When making decisions, it's important to <input id="q1" type="text" placeholder="Answer here..."> between work and personal life.
+</div>
+
+<div class="question">
+    2. The CEO is constantly <input id="q2" type="text" placeholder="Answer here..."> due to her high-profile status.
+</div>
+
+<div class="question">
+    3. If you feel overwhelmed, just <input id="q3" type="text" placeholder="Answer here..."> and take a deep breath.
+</div>
+
+<button onclick="checkAnswers()">Submit</button>
+
+<div class="result" id="result"></div>
+
+<script>
+    function checkAnswers() {
+        const answers = {
+            q1: "strike a balance",
+            q2: "in the public eye",
+            q3: "get a grip on yourself"
+        };
+
+        let score = 0;
+        for (let key in answers) {
+            const userAnswer = document.getElementById(key).value.toLowerCase().trim();
+            if (userAnswer === answers[key]) {
+                score++;
+            }
+        }
+
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = `You got ${score}/3 correct!`;
+    }
+</script>
+
+</body>
+</html>
