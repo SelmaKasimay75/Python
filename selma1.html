@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill in the Blanks Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Fill in the Blanks Quiz</h1>
+
+<div class="question">
+    1. When making decisions, it's important to __________ between work and personal life to avoid burnout.
+    <input type="text" id="q1" placeholder="Your answer">
+</div>
+
+<div class="question">
+    2. He tends to __________ before making major life decisions, which often frustrates his friends.
+    <input type="text" id="q2" placeholder="Your answer">
+</div>
+
+<div class="question">
+    3. She was called for an interview __________, so she didn’t have much time to prepare.
+    <input type="text" id="q3" placeholder="Your answer">
+</div>
+
+<div class="question">
+    4. We'll have to __________ and see if the new policy will actually work.
+    <input type="text" id="q4" placeholder="Your answer">
+</div>
+
+<div class="question">
+    5. I wouldn't __________ what she said; she might not know all the details.
+    <input type="text" id="q5" placeholder="Your answer">
+</div>
+
+<div class="question">
+    6. He loves his job because he gets __________, being able to work from home while earning a good salary.
+    <input type="text" id="q6" placeholder="Your answer">
+</div>
+
+<div class="question">
+    7. The CEO is constantly __________ due to her high-profile status.
+    <input type="text" id="q7" placeholder="Your answer">
+</div>
+
+<div class="question">
+    8. If you feel overwhelmed, just __________ and take a deep breath.
+    <input type="text" id="q8" placeholder="Your answer">
+</div>
+
+<div class="question">
+    9. I was given this information __________, so I can’t share it with anyone else.
+    <input type="text" id="q9" placeholder="Your answer">
+</div>
+
+<div class="question">
+    10. It took me a while to get __________ after returning from vacation, but now I’m fully caught up.
+    <input type="text" id="q10" placeholder="Your answer">
+</div>
+
+<div class="question">
+    11. As a __________, always double-check the facts before making a decision.
+    <input type="text" id="q11" placeholder="Your answer">
+</div>
+
+<div class="question">
+    12. After missing the deadline, he found himself __________ with his boss.
+    <input type="text" id="q12" placeholder="Your answer">
+</div>
+
+<button onclick="checkAnswers()">Submit</button>
+
+<div class="result" id="result"></div>
+
+<script>
+    function checkAnswers() {
+        const answers = {
+            q1: "strike a balance",
+            q2: "(not) think twice",
+            q3: "at short notice",
+            q4: "wait and see",
+            q5: "take (something) at face value",
+            q6: "the best of both worlds",
+            q7: "in the public eye",
+            q8: "get a grip (on yourself)",
+            q9: "off the record",
+            q10: "up to speed",
+            q11: "rule of thumb",
+            q12: "in hot water"
+        };
+
+        let score = 0;
+        for (let i = 1; i <= 12; i++) {
+            const userAnswer = document.getElementById(`q${i}`).value.trim().toLowerCase();
+            if (userAnswer === answers[`q${i}`].toLowerCase()) {
+                score++;
+            }
+        }
+
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = `You got ${score}/12 correct!`;
+    }
+</script>
+
+</body>
+</html>
